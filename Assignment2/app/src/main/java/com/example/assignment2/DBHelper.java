@@ -10,6 +10,12 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+// --------------------------------------------------------------------
+// Assignment 2
+// Written by: Anthony Nadeau - 2058983
+// For Application Development 2 (Mobile) - Winter 2022
+// --------------------------------------------------------------------
+
 public class DBHelper extends SQLiteOpenHelper {
 
 

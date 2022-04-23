@@ -14,6 +14,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+// --------------------------------------------------------------------
+// Assignment 2
+// Written by: Anthony Nadeau - 2058983
+// For Application Development 2 (Mobile) - Winter 2022
+// --------------------------------------------------------------------
+
 public class CheckoutActivity2 extends AppCompatActivity {
     private RadioButton shipButton;
     private RadioButton pickButton;

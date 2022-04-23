@@ -15,6 +15,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+// --------------------------------------------------------------------
+// Assignment 2
+// Written by: Anthony Nadeau - 2058983
+// For Application Development 2 (Mobile) - Winter 2022
+// --------------------------------------------------------------------
+
 public class CheckoutActivity1 extends AppCompatActivity {
     private TextView name;
     private TextView address;

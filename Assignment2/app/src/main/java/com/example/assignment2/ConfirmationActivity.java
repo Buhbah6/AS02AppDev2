@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import java.util.Timer;
 
+// --------------------------------------------------------------------
+// Assignment 2
+// Written by: Anthony Nadeau - 2058983
+// For Application Development 2 (Mobile) - Winter 2022
+// --------------------------------------------------------------------
+
 public class ConfirmationActivity extends AppCompatActivity {
     private DBHelper db;
     private TextView shipping;

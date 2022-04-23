@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#b5e6b8"
+    android:background="#AFF486"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -14,19 +14,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/giftButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Gifts" />
+            android:background="@drawable/rectangle_shape"
+            android:text="Gifts"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/flowerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Flowers" />
+            android:background="@drawable/rectangle_shape"
+            android:backgroundTint="#3D751D"
+            android:text="Flowers"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

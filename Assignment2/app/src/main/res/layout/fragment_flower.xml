@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#b5e6b8"
+        android:background="#AFF486"
         android:orientation="vertical"
         tools:context=".FlowerFragment">
 
@@ -22,6 +22,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?attr/colorPrimaryVariant"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="30dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/flowerRecyclerView"
             android:layout_width="match_parent"
@@ -31,7 +38,11 @@
             android:id="@+id/flowerGuideButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Flower Purchase Guide" />
+            android:text="Flower Purchase Guide"
+            android:background="@drawable/rectangle_shape"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 </ScrollView>

@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#b5e6b8">
+    android:background="#AFF486">
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,7 +22,9 @@
             android:layout_height="110dp"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:background="@drawable/rounded_corners"
+            tools:srcCompat="@tools:sample/avatars"
+            android:clipToOutline="true"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,5 +64,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?attr/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/mainLayout"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

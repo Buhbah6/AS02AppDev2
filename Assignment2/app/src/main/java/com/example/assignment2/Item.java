@@ -1,5 +1,11 @@
 package com.example.assignment2;
 
+// --------------------------------------------------------------------
+// Assignment 2
+// Written by: Anthony Nadeau - 2058983
+// For Application Development 2 (Mobile) - Winter 2022
+// --------------------------------------------------------------------
+
 public class Item {
     private String name;
     private String description;

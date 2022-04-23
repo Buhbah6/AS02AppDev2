@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#74dbce"
+        android:background="#64BF30"
         android:orientation="vertical"
         tools:context=".CheckoutActivity1">
 
@@ -30,7 +30,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="5dp"
             android:text="Comments/Notes for the Seller:"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
@@ -40,7 +40,7 @@
             android:layout_marginRight="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:background="@color/white"
+            android:background="@drawable/rounded_corners"
             android:inputType="textMultiLine"
             android:lines="6" />
 
@@ -51,7 +51,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginBottom="5dp"
             android:text="Method of Delivery:"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -64,22 +64,23 @@
                 android:id="@+id/shippingButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shipping" />
+                android:text="Shipping"
+                android:textSize="20sp"/>
 
             <RadioButton
                 android:id="@+id/pickupButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pickup" />
+                android:text="Pickup"
+                android:textSize="20sp"/>
         </RadioGroup>
 
         <Button
             android:id="@+id/completeButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="80dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginHorizontal="80dp"
             android:backgroundTint="@color/black"
             android:text="Complete Checkout" />
 
