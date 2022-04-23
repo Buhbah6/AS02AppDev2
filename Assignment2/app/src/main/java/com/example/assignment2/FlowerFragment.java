@@ -31,16 +31,19 @@ public class FlowerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_flower, container, false);
         recyclerView = view.findViewById(R.id.flowerRecyclerView);
         guideButton = view.findViewById(R.id.flowerGuideButton);
-        db = new DBHelper(getContext());
 
+        // Checks to see if the flower table is already populated, and if it isn't, it populates it
+        db = new DBHelper(getContext());
         if (db.getItem(table, "Tulip") == null) {
             populateFlowers();
         }
         setAdapter();
 
+        // Sends the user to a flower gift guide (external application implementation)
         guideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +57,9 @@ public class FlowerFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Passes the Flower table to the recyclerview and sets the adapter using the custom adapter
+     */
     private void setAdapter() {
         RecyclerAdapter adapter = new RecyclerAdapter(table, getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -61,6 +67,9 @@ public class FlowerFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Adds the flowers to the database
+     */
     public void populateFlowers() {
         db.addItem(table, new Item("Tulip", "Red and Yellow flower.",
                 5.99, "@drawable/flower1"));

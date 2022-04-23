@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         giftFragment = new GiftFragment();
         flowerFragment = new FlowerFragment();
 
+        // Shows all the gifts
         giftButton = findViewById(R.id.giftButton);
         giftButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Shows all the flowers
         flowerButton = findViewById(R.id.flowerButton);
         flowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Shows the menu with the favourites button
+     * @param menu the menu containing the favourites button
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -61,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Makes the favourites button open the favourites activity
+     * @param item the favourites button
+     * @return the super method
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = new Intent(getApplicationContext(), FavouritesActivity.class);
@@ -68,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method to set the fragment container content to the passed fragment
+     * @param frag fragment being inflated int he fragment container
+     */
     private void changeFragment(Fragment frag) {
         FragmentManager fragMan = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragMan.beginTransaction();

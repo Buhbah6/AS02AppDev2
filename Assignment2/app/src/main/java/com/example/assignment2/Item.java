@@ -12,6 +12,13 @@ public class Item {
     private double price;
     private String imageFile;
 
+    /**
+     * Constructor with all instance variables
+     * @param name the name of the item
+     * @param description the description of the item
+     * @param price the price of the item
+     * @param imageFile the @drawable/ link to the correct image
+     */
     public Item(String name, String description, double price, String imageFile) {
         this.name = name;
         this.description = description;
@@ -19,10 +26,16 @@ public class Item {
         this.imageFile = imageFile;
     }
 
+    /**
+     * Overridden toString
+     * @return the object as a string
+     */
     @Override
     public String toString() {
         return String.format("%s\nPrice: $%.2f\n\n", name, price);
     }
+
+    // GETTERS AND SETTERS //
 
     public String getName() {
         return name;

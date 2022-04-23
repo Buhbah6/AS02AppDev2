@@ -35,13 +35,15 @@ public class GiftFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gift, container, false);
         recyclerView = view.findViewById(R.id.giftRecyclerView);
         guideButton = view.findViewById(R.id.giftGuideButton);
-        db = new DBHelper(getContext());
 
+        // Checks that the gifts table isn't empty, and if it is, it populates the table
+        db = new DBHelper(getContext());
         if (db.getItem(table, "Headphones") == null) {
             populateGifts();
         }
         setAdapter();
 
+        // Sends the user to a gift guide (external application implementation)
         guideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +57,9 @@ public class GiftFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Passes the Gifts table to the recyclerview and sets the adapter using the custom adapter
+     */
     private void setAdapter() {
         RecyclerAdapter adapter = new RecyclerAdapter(table, getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -62,6 +67,9 @@ public class GiftFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Adds the gifts to the database
+     */
     public void populateGifts() {
         db.addItem(table, new Item("Headphones", "Astro A50 wireless headphones for PC.",
                 339.99, "@drawable/gift1"));
@@ -73,7 +81,7 @@ public class GiftFragment extends Fragment {
                 42.99, "@drawable/gift4"));
         db.addItem(table, new Item("Warm Light", "Light that can be turned on or off at a distance.",
                 11.99, "@drawable/gift5"));
-        db.addItem(table, new Item("Framed Poem", "A framed poem about love and frienship.",
+        db.addItem(table, new Item("Framed Poem", "A framed poem about love and friendship.",
                 4.99, "@drawable/gift6"));
         db.addItem(table, new Item("$50 Amazon Gift Card", "Card with total value of $50 for Amazon.ca.",
                 49.99, "@drawable/gift7"));

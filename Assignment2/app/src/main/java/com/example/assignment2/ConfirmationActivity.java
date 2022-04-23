@@ -25,20 +25,28 @@ public class ConfirmationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+
+        // retrieves the type of delivery from the intent
         Intent intent = getIntent();
         String method = intent.getStringExtra("shipping");
+
         shipping = findViewById(R.id.shippingTextView);
         delay = findViewById(R.id.delayTextView);
+
+        // removes the items from favourites, similarly to a cart
         db = new DBHelper(getApplicationContext());
         db.removeAllItemsFromTable("FAVOURITE_ITEMS");
 
+        // displays the chosen method of delivery
         shipping.setText("Method of Delivery: " + method);
 
+        // Timer counts down from 60 to represent the preparation time
         new CountDownTimer(60000, 1000) {
             public void onTick(long millisUntilFinished) {
                 delay.setText("Order will be ready in: " + millisUntilFinished / 1000 + " Seconds");
             }
 
+            // When the timer reaches 0, it returns to the first page
             public void onFinish() {
                 delay.setText(method + " COMPLETE");
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

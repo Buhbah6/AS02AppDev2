@@ -33,14 +33,17 @@ public class FavouritesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
+
+        // uses the database to verify that there are actually items within it
         db = new DBHelper(getApplicationContext());
         recyclerView = findViewById(R.id.favouritesRecyclerView);
+
         setAdapter();
         startCheckoutButton = findViewById(R.id.checkoutButton);
         startCheckoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (db.getAnyItem(table) != null) {
+                if (db.getAnyItem(table) != null) { // makes sure the table isn't empty
                     Intent intent = new Intent(getApplicationContext(), CheckoutActivity1.class);
                     startActivity(intent);
                 }
@@ -51,6 +54,9 @@ public class FavouritesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sends the favourite table name to the recyclerview and sets the adapter to the custom adapter
+     */
     private void setAdapter() {
         RecyclerAdapter adapter = new RecyclerAdapter(table, getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -58,6 +64,11 @@ public class FavouritesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Adds the back button to the program
+     * @param menu the menu containing containing the option
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -65,6 +76,11 @@ public class FavouritesActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Adds the functionality of the back button
+     * @param item the back button
+     * @return the super method
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

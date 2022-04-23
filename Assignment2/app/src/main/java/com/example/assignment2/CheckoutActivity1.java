@@ -34,6 +34,8 @@ public class CheckoutActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout1);
+
+        // uses the database to get all items being processed in the transaction
         db = new DBHelper(getApplicationContext());
         transaction = db.getAllItems("FAVOURITE_ITEMS");
 
@@ -42,6 +44,7 @@ public class CheckoutActivity1 extends AppCompatActivity {
         postalCode = findViewById(R.id.postalCodeEditText);
         receipt = findViewById(R.id.receiptTextView);
 
+        // creates the receipt that appears on the checkout page
         String receiptString = "All items in transaction:\n";
         double totalPrice = 0;
         for (Item item : transaction) {
@@ -53,6 +56,7 @@ public class CheckoutActivity1 extends AppCompatActivity {
 
         nextButton = findViewById(R.id.nextButton);
 
+        // Checks that all fields have been filled out, and starts the next step in the checkout
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +73,11 @@ public class CheckoutActivity1 extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds the back button to the program
+     * @param menu the menu containing containing the option
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -76,6 +85,11 @@ public class CheckoutActivity1 extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Adds the functionality of the back button
+     * @param item the back button
+     * @return the super method
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = new Intent(getApplicationContext(), FavouritesActivity.class);

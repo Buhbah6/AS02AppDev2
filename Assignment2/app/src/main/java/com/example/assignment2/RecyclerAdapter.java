@@ -28,12 +28,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     private Context context;
     private DBHelper db;
 
+    /**
+     * Constructor takes the tableName and the context of the application
+     * @param tableName the table being queried to display data
+     * @param context the current context of the application upon instantiation
+     */
     public RecyclerAdapter(String tableName, Context context) {
         db = new DBHelper(context);
         this.objects = db.getAllItems(tableName);
         this.context = context;
     }
 
+    /**
+     * Inner class that contains the view for each object being showed
+     */
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private ImageView image;
         private TextView name;
@@ -53,6 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         }
     }
 
+    // inflates the view inside the viewholder and returns it
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -60,24 +69,32 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return new MyViewHolder(itemView);
     }
 
+    // Defines the amount of objects to be displayed
     @Override
     public int getItemCount() {
         return objects.size();
     }
 
+    //
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Item item = objects.get(position);
+        Item item = objects.get(position); // stores the item to be used later
+
+        // Setting the elements of the viewholder to contain the object contents
         holder.image.setImageDrawable(getResource(item.getImageFile()));
         holder.name.setText(item.getName());
         holder.description.setText(item.getDescription());
         holder.price.setText("$" + item.getPrice());
+
+        // Sets the favourite button to active if the item is already favourited
         if (db.getItem("FAVOURITE_ITEMS", item.getName()) != null) {
             holder.clickNum = 1;
             holder.favouriteButton.setImageDrawable(getResource("@android:drawable/btn_star_big_on"));
         }
         else
             holder.clickNum = 0;
+
+        // Makes the favourite button add or remove the object from the favourites table depending on its current status
         holder.favouriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,6 +112,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         });
     }
 
+    /**
+     * Gets the Drawable file from the passed name
+     * @param name the name of the @drawable file
+     * @return the file as a Drawable resource
+     */
     public Drawable getResource(String name) {
         int imageResource = context.getResources().getIdentifier(name, null, context.getPackageName());
         return context.getResources().getDrawable(imageResource);
